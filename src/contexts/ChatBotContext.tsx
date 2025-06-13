@@ -2,9 +2,10 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface ChatBotContextType {
   isOpen: boolean;
-  openChat: () => void;
+  openChat: (prefilledMessage?: string) => void;
   closeChat: () => void;
   toggleChat: () => void;
+  prefilledMessage: string;
 }
 
 const ChatBotContext = createContext<ChatBotContextType | undefined>(undefined);
@@ -23,13 +24,22 @@ interface ChatBotProviderProps {
 
 export const ChatBotProvider: React.FC<ChatBotProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [prefilledMessage, setPrefilledMessage] = useState('');
 
-  const openChat = () => setIsOpen(true);
-  const closeChat = () => setIsOpen(false);
+  const openChat = (prefilledMsg?: string) => {
+    if (prefilledMsg) {
+      setPrefilledMessage(prefilledMsg);
+    }
+    setIsOpen(true);
+  };
+  const closeChat = () => {
+    setIsOpen(false);
+    setPrefilledMessage('');
+  };
   const toggleChat = () => setIsOpen(!isOpen);
 
   return (
-    <ChatBotContext.Provider value={{ isOpen, openChat, closeChat, toggleChat }}>
+    <ChatBotContext.Provider value={{ isOpen, openChat, closeChat, toggleChat, prefilledMessage }}>
       {children}
     </ChatBotContext.Provider>
   );

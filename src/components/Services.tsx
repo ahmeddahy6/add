@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bot, Brain, BarChart3, Eye, Mic, Cog } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -93,6 +94,15 @@ const Services = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-16 animate-on-scroll opacity-0 translate-y-8 blur-sm">
+          <Link
+            to="/specservices"
+            className="glass-button px-8 py-4 bg-gradient-to-r from-[#0052D4]/20 via-[#4364F7]/20 to-[#6FB1FC]/20 border border-[#4364F7]/30 rounded-lg backdrop-blur-sm font-light tracking-wide hover:from-[#0052D4]/30 hover:via-[#4364F7]/30 hover:to-[#6FB1FC]/30 transition-all duration-300 inline-block"
+          >
+            Load More
+          </Link>
         </div>
       </div>
     </section>

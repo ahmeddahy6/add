@@ -38,7 +38,7 @@ const Hero = () => {
               Connect With Us
             </button>
             <button className="glass-button px-8 py-4 bg-white/10 border border-white/20 rounded-lg backdrop-blur-sm font-light tracking-wide hover:bg-white/20 transition-all duration-300">
-              What is Nubien?
+              What is NileByte?
             </button>
           </div>
         </div>
