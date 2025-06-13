@@ -3,9 +3,12 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 relative bg-black">
+    <section id="contact" className="py-32 relative">
+      {/* Darker background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#0052D4]/8 to-black/60"></div>
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="animate-on-scroll opacity-0 translate-y-8 blur-sm">
+        <div className="modern-blur-fade opacity-0">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-wide">
               Get in <span className="dynamic-gradient-text">Touch</span>

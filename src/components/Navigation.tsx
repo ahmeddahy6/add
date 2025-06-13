@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
+  const [showSpecificDropdown, setShowSpecificDropdown] = useState(false);
   const navigate = useNavigate();
 
   const navItems = [
@@ -60,7 +61,7 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-4 left-4 right-4 z-50 bg-black/10 backdrop-blur-xl border border-white/5 rounded-3xl subtle-nav-glow">
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           <div className="text-xl font-semibold tracking-wider">
             AI<span className="text-blue-400">Studio</span>
@@ -70,10 +71,12 @@ const Navigation = () => {
             {navItems.map((item) => (
               <div key={item.id} className="relative">
                 {item.id === 'services' ? (
-                  <div className="relative">
+                  <div 
+                    className="relative dropdown-persistent"
+                    onMouseEnter={() => setShowServicesDropdown(true)}
+                    onMouseLeave={() => setShowServicesDropdown(false)}
+                  >
                     <button
-                      onMouseEnter={() => setShowServicesDropdown(true)}
-                      onMouseLeave={() => setShowServicesDropdown(false)}
                       onClick={() => scrollToSection(item.id)}
                       className={`flex items-center gap-1 px-4 py-2 text-sm font-light tracking-wide transition-all duration-300 rounded-lg ${
                         activeSection === item.id
@@ -86,32 +89,33 @@ const Navigation = () => {
                     </button>
 
                     {/* Services Dropdown */}
-                    {showServicesDropdown && (
-                      <div
-                        className="absolute top-full left-0 mt-2 w-64 bg-black/90 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden animate-fade-in"
-                        onMouseEnter={() => setShowServicesDropdown(true)}
-                        onMouseLeave={() => setShowServicesDropdown(false)}
+                    <div className={`dropdown-menu absolute top-full left-0 mt-2 w-64 bg-black/90 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden ${showServicesDropdown ? 'opacity-100 visible transform-none' : ''}`}>
+                      <Link
+                        to="/genservices"
+                        className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200"
+                      >
+                        General
+                      </Link>
+                      <div 
+                        className="relative group"
+                        onMouseEnter={() => setShowSpecificDropdown(true)}
+                        onMouseLeave={() => setShowSpecificDropdown(false)}
                       >
                         <Link
-                          to="/genservices"
-                          className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200"
+                          to="/specservices"
+                          className="w-full flex items-center justify-between px-6 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200"
                         >
-                          General
+                          Specific Niche
+                          <ChevronDown className="w-4 h-4" />
                         </Link>
-                        <div className="relative group">
-                          <button className="w-full flex items-center justify-between px-6 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200">
-                            Specific Niche
-                            <ChevronDown className="w-4 h-4" />
-                          </button>
-                          <div className="absolute left-full top-0 w-48 bg-black/90 backdrop-blur-xl border border-white/10 rounded-xl ml-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <Link to="/specservices?niche=ecommerce" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200">E-commerce</Link>
-                            <Link to="/specservices?niche=sales" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200">Sales</Link>
-                            <Link to="/specservices?niche=marketing" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200">Marketing</Link>
-                            <Link to="/specservices?niche=coaching" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200">Coaching</Link>
-                          </div>
+                        <div className={`absolute left-full top-0 w-48 bg-black/90 backdrop-blur-xl border border-white/10 rounded-xl ml-2 transition-all duration-200 ${showSpecificDropdown ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+                          <Link to="/specservices?niche=ecommerce" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200">E-commerce</Link>
+                          <Link to="/specservices?niche=marketing" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200">Marketing</Link>
+                          <Link to="/specservices?niche=sales" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200">Sales</Link>
+                          <Link to="/specservices?niche=coaching" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-200">Coaching</Link>
                         </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 ) : (
                   <button

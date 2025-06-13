@@ -28,7 +28,7 @@ const About = () => {
   return (
     <section id="about" className="py-32 relative bg-black">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20 animate-on-scroll opacity-0 translate-y-8 blur-sm">
+        <div className="text-center mb-20 modern-blur-fade opacity-0">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-wide">
             About Our <span className="dynamic-gradient-text">Vision</span>
           </h2>
@@ -41,8 +41,8 @@ const About = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="animate-on-scroll opacity-0 translate-y-8 blur-sm glass-card p-8 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-500 group"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              className="modern-slide-up opacity-0 glass-card p-8 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-500 group"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="w-16 h-16 dynamic-gradient-icon rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <feature.icon className="w-8 h-8 text-white" />

@@ -15,25 +15,30 @@ function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    // Set up intersection observer for scroll animations with improved performance
+    // Modern intersection observer for smooth animations
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          } else {
-            entry.target.classList.remove('animate-in');
+            // Add modern animation classes
+            if (entry.target.classList.contains('modern-fade-in')) {
+              entry.target.classList.add('animate-in');
+            } else if (entry.target.classList.contains('modern-slide-up')) {
+              entry.target.classList.add('animate-in');
+            } else if (entry.target.classList.contains('modern-blur-fade')) {
+              entry.target.classList.add('animate-in');
+            }
           }
         });
       },
       {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -20px 0px'
       }
     );
 
-    // Observe all animatable elements
-    const elements = document.querySelectorAll('.animate-on-scroll');
+    // Observe all modern animatable elements
+    const elements = document.querySelectorAll('.modern-fade-in, .modern-slide-up, .modern-blur-fade');
     elements.forEach((el) => observerRef.current?.observe(el));
 
     return () => {

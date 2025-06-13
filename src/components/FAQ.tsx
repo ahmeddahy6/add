@@ -38,7 +38,7 @@ const FAQ = () => {
   return (
     <section id="faq" className="py-32 relative bg-black">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20 animate-on-scroll opacity-0 translate-y-8 blur-sm">
+        <div className="text-center mb-20 modern-blur-fade opacity-0">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-wide">
             Frequently Asked <span className="dynamic-gradient-text">Questions</span>
           </h2>
@@ -51,8 +51,8 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="animate-on-scroll opacity-0 translate-y-8 blur-sm mb-6"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              className="modern-slide-up opacity-0 mb-6"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <button
                 onClick={() => toggleFAQ(index)}

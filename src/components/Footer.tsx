@@ -1,10 +1,12 @@
 import React from 'react';
-import { Twitter, Instagram, Youtube, Framer } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="py-20 border-t border-white/10 bg-black/20 backdrop-blur-sm">
-      <div className="container mx-auto px-6">
+    <footer className="py-20 border-t border-white/10 relative">
+      {/* Darker background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#0052D4]/8 to-black/80"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Company Info */}
           <div className="md:col-span-1">
@@ -19,9 +21,9 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Template Pages */}
+          {/* Parts */}
           <div>
-            <h3 className="text-white font-semibold mb-6 tracking-wide">Template Pages</h3>
+            <h3 className="text-white font-semibold mb-6 tracking-wide">Parts</h3>
             <ul className="space-y-3">
               <li>
                 <a href="#home" className="text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wide relative px-2 py-1 rounded hover:bg-blue-400/10">
@@ -51,27 +53,27 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social */}
+          {/* Social - Perfectly aligned */}
           <div>
             <h3 className="text-white font-semibold mb-6 tracking-wide">Social</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wide relative px-2 py-1 rounded hover:bg-blue-400/10">
+                <a href="#" className="text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wide relative px-2 py-1 rounded hover:bg-blue-400/10 block">
                   Twitter (X)
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wide relative px-2 py-1 rounded hover:bg-blue-400/10">
+                <a href="#" className="text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wide relative px-2 py-1 rounded hover:bg-blue-400/10 block">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wide relative px-2 py-1 rounded hover:bg-blue-400/10">
+                <a href="#" className="text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wide relative px-2 py-1 rounded hover:bg-blue-400/10 block">
                   Youtube
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wide relative px-2 py-1 rounded hover:bg-blue-400/10">
+                <a href="#" className="text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wide relative px-2 py-1 rounded hover:bg-blue-400/10 block">
                   Framer
                 </a>
               </li>

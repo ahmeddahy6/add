@@ -50,10 +50,11 @@ const Services = () => {
 
   return (
     <section id="services" className="py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0052D4]/10 to-transparent"></div>
+      {/* Darker background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#0052D4]/8 to-black/60"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20 animate-on-scroll opacity-0 translate-y-8 blur-sm">
+        <div className="text-center mb-20 modern-blur-fade opacity-0">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-wide">
             AI-Powered Services for
             <br />
@@ -70,7 +71,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="animate-on-scroll opacity-0 translate-y-8 blur-sm glass-card bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm overflow-hidden group hover:bg-white/10 transition-all duration-500"
+              className="modern-slide-up opacity-0 glass-card bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm overflow-hidden group hover:bg-white/10 transition-all duration-500"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="aspect-video overflow-hidden">
@@ -96,7 +97,7 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="text-center mt-16 animate-on-scroll opacity-0 translate-y-8 blur-sm">
+        <div className="text-center mt-16 modern-fade-in opacity-0" style={{ animationDelay: '0.6s' }}>
           <Link
             to="/specservices"
             className="glass-button px-8 py-4 bg-gradient-to-r from-[#0052D4]/20 via-[#4364F7]/20 to-[#6FB1FC]/20 border border-[#4364F7]/30 rounded-lg backdrop-blur-sm font-light tracking-wide hover:from-[#0052D4]/30 hover:via-[#4364F7]/30 hover:to-[#6FB1FC]/30 transition-all duration-300 inline-block"
