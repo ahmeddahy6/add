@@ -3,9 +3,7 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent"></div>
-
+    <section id="contact" className="py-32 relative bg-black">
       <div className="container mx-auto px-6 relative z-10">
         <div className="animate-on-scroll opacity-0 translate-y-8 blur-sm">
           <div className="text-center mb-16">

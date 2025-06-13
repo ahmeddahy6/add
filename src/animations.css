@@ -1,6 +1,6 @@
 /* Scroll animations with faster, smoother performance */
 .animate-on-scroll {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
 }
 
@@ -10,7 +10,7 @@
   filter: blur(0) !important;
 }
 
-/* Breathing effect for hero background */
+/* Breathing effect for hero background - faster */
 @keyframes breathe {
   0%, 100% {
     opacity: 0.15;
@@ -45,20 +45,20 @@
 }
 
 .animate-breathe {
-  animation: breathe 3s ease-in-out infinite;
+  animation: breathe 2s ease-in-out infinite;
 }
 
 .animate-breathe-slow {
-  animation: breathe-slow 4s ease-in-out infinite;
+  animation: breathe-slow 2.5s ease-in-out infinite;
 }
 
 .animate-breathe-reverse {
-  animation: breathe-reverse 3.5s ease-in-out infinite;
+  animation: breathe-reverse 2.2s ease-in-out infinite;
 }
 
-/* Fade in animation */
+/* Fade in animation - faster */
 .animate-fade-in {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 0.2s ease-out;
 }
 
 @keyframes fadeIn {
@@ -74,7 +74,7 @@
 
 /* ChatBot animations */
 .animate-in {
-  animation: slideInFromBottom 0.3s ease-out forwards;
+  animation: slideInFromBottom 0.2s ease-out forwards;
 }
 
 .fade-in-0 {
@@ -86,7 +86,7 @@
 }
 
 .duration-300 {
-  transition-duration: 300ms;
+  transition-duration: 200ms;
 }
 
 @keyframes slideInFromBottom {
@@ -100,43 +100,37 @@
   }
 }
 
-/* Dynamic glow shadow for navbar */
-.dynamic-nav-glow {
+/* Subtle pulse shadow for navbar */
+.subtle-nav-glow {
   position: relative;
-  box-shadow:
-    0 0 8px rgba(0, 82, 212, 0.3),
-    0 0 16px rgba(67, 100, 247, 0.2);
-  animation: dynamic-glow 2s ease-in-out infinite;
+  box-shadow: 0 0 4px rgba(0, 82, 212, 0.2);
+  animation: subtle-pulse 3s ease-in-out infinite;
 }
 
-@keyframes dynamic-glow {
+@keyframes subtle-pulse {
   0%, 100% {
-    box-shadow:
-      0 0 8px rgba(0, 82, 212, 0.3),
-      0 0 16px rgba(67, 100, 247, 0.2);
+    box-shadow: 0 0 4px rgba(0, 82, 212, 0.2);
   }
   50% {
-    box-shadow:
-      0 0 12px rgba(0, 82, 212, 0.5),
-      0 0 24px rgba(67, 100, 247, 0.3);
+    box-shadow: 0 0 8px rgba(67, 100, 247, 0.3);
   }
 }
 
-/* Dynamic text gradient animation */
+/* Dynamic text gradient animation - faster */
 .dynamic-gradient-text {
   background: linear-gradient(45deg, #0052D4, #4364F7, #6FB1FC, #0052D4, #4364F7);
   background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 2.5s ease infinite;
 }
 
-/* Dynamic icon gradient animation */
+/* Dynamic icon gradient animation - faster */
 .dynamic-gradient-icon {
   background: linear-gradient(45deg, #0052D4, #4364F7, #6FB1FC, #0052D4, #4364F7);
   background-size: 300% 300%;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 2.5s ease infinite;
   border-radius: inherit;
 }
 
@@ -152,9 +146,9 @@
   }
 }
 
-/* Glass effects */
+/* Glass effects - optimized */
 .glass-card {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .glass-card:hover {
@@ -162,11 +156,11 @@
   box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
 }
 
-/* Button animations with opacity sweep */
+/* Button animations with opacity sweep - faster */
 .glass-button {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .glass-button::before {
@@ -177,7 +171,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.6s ease;
+  transition: left 0.4s ease;
 }
 
 .glass-button:hover::before {

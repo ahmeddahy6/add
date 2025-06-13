@@ -12,6 +12,19 @@ const ChatBot = () => {
   useEffect(() => {
     if (prefilledMessage && isOpen) {
       setInputValue(prefilledMessage);
+      // Auto-send the prefilled message
+      setTimeout(() => {
+        setMessages(prev => [...prev, { type: 'user', text: prefilledMessage }]);
+        setInputValue('');
+        
+        // Simulate bot response
+        setTimeout(() => {
+          setMessages(prev => [...prev, {
+            type: 'bot',
+            text: 'Thanks for your message! Our team will get back to you shortly. In the meantime, feel free to explore our services or book a call with our experts.'
+          }]);
+        }, 1000);
+      }, 500);
     }
   }, [prefilledMessage, isOpen]);
 

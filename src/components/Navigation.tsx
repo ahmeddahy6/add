@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -15,9 +16,15 @@ const Navigation = () => {
   ];
 
   const scrollToSection = (sectionId: string) => {
-    // If not on home page, navigate to home first
+    // If not on home page, navigate to home first then scroll
     if (window.location.pathname !== '/') {
-      window.location.href = `/#${sectionId}`;
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
       return;
     }
 
@@ -52,7 +59,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-50 bg-black/10 backdrop-blur-xl border border-white/5 rounded-3xl dynamic-nav-glow">
+    <nav className="fixed top-4 left-4 right-4 z-50 bg-black/10 backdrop-blur-xl border border-white/5 rounded-3xl subtle-nav-glow">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-xl font-semibold tracking-wider">

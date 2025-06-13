@@ -36,9 +36,7 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent"></div>
-
+    <section id="faq" className="py-32 relative bg-black">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 animate-on-scroll opacity-0 translate-y-8 blur-sm">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-wide">
@@ -54,7 +52,7 @@ const FAQ = () => {
             <div
               key={index}
               className="animate-on-scroll opacity-0 translate-y-8 blur-sm mb-6"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ animationDelay: `${index * 0.05}s` }}
             >
               <button
                 onClick={() => toggleFAQ(index)}
